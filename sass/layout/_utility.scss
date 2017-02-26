@@ -1,0 +1,67 @@
+.vertical-reset {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.horizontal-reset {
+  margin-right: 0;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.text-left { text-align: left;}
+.text-right { text-align: right;}
+.text-center { text-align: center; }
+.lineheight-large { line-height: 1.5;}
+.pull-left { float: left;}
+.push-right { float: right; }
+.margin-auto { margin: auto;}
+.wrapper-rel { position: relative;}
+
+.block { display: block;}
+.full-img {
+  display: block;
+  width: 100%;
+}
+.full-height { height: 100%;}
+.full-width { width: 100%; max-width: 100%;}
+.full-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.screen {
+  background-color: rgba(black, .3);
+  z-index: 2;
+  // background: linear-gradient(to top, rgba(black, .3) 10%, rgba(black, .1));
+}
+
+// .column {
+//   flex-direction: column;
+// }
+
+$width: 4, 2, 3, 4, 3, 5, 16;
+$height: 1, 1, 2, 3, 1, 1, 9;
+@for $i from 1 through length($width) {
+  .aspect_#{nth($width, $i)}-#{nth($height, $i)} {
+    @include aspect-ratio(nth($width, $i), nth($height, $i));
+  }
+}
+
+hr {
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  display: block;
+  margin: 1rem auto;
+  width: 90%;
+
+  &.white { border-bottom: 1px solid white; }
+  &.black { border-bottom: 1px solid #212121; }
+  &.short {
+    width: (100% / 3) * 2;
+  }
+}

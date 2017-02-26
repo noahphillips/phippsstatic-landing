@@ -1,0 +1,39 @@
+ // breakpoints
+@mixin breakpoint($point) {
+   @if $point == desktop {
+     @media (min-width: 75em) { @content ; }
+  }
+   @else if $point == laptop {
+     @media (min-width: 64em) { @content ; }
+  }
+    @else if $point == tablet {
+     @media (min-width: 48em) { @content ; }
+  }
+   @else if $point == phablet {
+     @media (min-width: 30em)  { @content ; }
+  }
+  @else if $point == mobileonly {
+     @media (max-width: 30em)  { @content ; }
+  }
+}
+
+// aspect ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+    @include breakpoint(mobileonly) { padding-top: 100%;}
+  }
+  & > .aspect_content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    &.text-only { padding-left: 2rem;}
+    &.title_copy-z { z-index: 2;}
+  }
+}
