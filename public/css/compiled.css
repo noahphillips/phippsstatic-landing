@@ -126,6 +126,39 @@ table {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Black';
+  src: url("../fonts/Roboto-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-SemiBold';
+  src: url("../fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.dark {
+  color: #000000;
+}
+
+.white {
+  color: white;
+}
+
+.text-shadow {
+  text-shadow: 4px 4px 4px #aaa;
+}
+
 html {
   height: 100%;
   width: 100%;
@@ -159,7 +192,7 @@ body {
   cursor: pointer;
 }
 
-#nav {
+.nav {
   position: fixed;
   width: 100%;
   max-width: 16rem;
@@ -169,7 +202,7 @@ body {
   height: 100vh;
   z-index: 5;
   padding-left: 2rem;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #f2f2f2;
   -webkit-transform: translateX(-32rem);
   transform: translateX(-32rem);
   -webkit-transition: -webkit-transform .3s;
@@ -178,28 +211,45 @@ body {
   transition: transform .3s, -webkit-transform .3s;
 }
 
-#nav.is-shown {
+@media (min-width: 30em) {
+  .nav {
+    background-color: white;
+    box-shadow: -1px 8px 6px -6px rgba(0, 0, 0, 0.3);
+    height: auto;
+    padding-left: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    max-width: initial;
+    top: 0;
+    bottom: auto;
+    left: auto;
+    right: auto;
+  }
+}
+
+.nav ul {
+  display: -webkit-box;
+  display: flex;
+}
+
+@media (min-width: 30em) {
+  .nav ul {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+  }
+}
+
+.nav.is-shown {
   -webkit-transform: translateX(0);
   transform: translateX(0);
 }
 
-#nav ul {
-  display: -webkit-box;
-  display: flex;
-  flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  justify-content: center;
-  height: 100%;
-}
-
-#nav li {
-  padding-bottom: 2rem;
-}
-
-#nav a {
+.nav a {
   color: #9C27B0;
   text-decoration: none;
   cursor: pointer;
@@ -207,7 +257,7 @@ body {
   transition: color .3s;
 }
 
-#nav a:hover {
+.nav a:hover {
   color: #d176e1;
 }
 
@@ -275,31 +325,37 @@ body {
 }
 
 .title {
-  color: white;
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 .title-sub {
-  color: white;
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 
-#fullpage .section-background {
+.section.pad-top {
+  padding-top: 2rem;
+}
+
+.section.pad-top_tall {
+  padding-top: 3.5rem;
+}
+
+.section.pad-bottom {
+  padding-bottom: 2rem;
+}
+
+.section.pad-bottom_tall {
+  padding-bottom: 3.5rem;
+}
+
+.section-background {
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-#fullpage .bottom-5 {
-  padding-bottom: 5rem;
-}
-
-#fullpage .top-3 {
-  padding-top: 3rem;
-}
-
-#fullpage a {
+a {
   display: inline-block;
   color: #FFC107;
   text-decoration: none;
@@ -310,7 +366,7 @@ body {
   transition: color .3s;
 }
 
-#fullpage a:hover {
+a:hover {
   color: #9C27B0;
 }
 
@@ -378,6 +434,26 @@ body {
 
 .calendar .row {
   margin-bottom: 2.6rem;
+}
+
+.list {
+  font-family: "Roboto-Medium";
+  padding-top: 1rem;
+}
+
+@media (min-width: 30em) {
+  .list {
+    padding-left: 1.6rem;
+  }
+}
+
+.list li {
+  padding-top: .6rem;
+  padding-left: .3rem;
+}
+
+.list.disc {
+  list-style-type: disc;
 }
 
 footer {
@@ -476,6 +552,54 @@ footer address a:hover {
   padding-right: 0;
 }
 
+.push-top {
+  padding-top: 2rem;
+}
+
+.push-top_tall {
+  padding-top: 3.5rem;
+}
+
+.push-top_half {
+  padding-top: 1rem;
+}
+
+.push-bottom {
+  padding-bottom: 2rem;
+}
+
+.push-bottom_tall {
+  padding-bottom: 3.5rem;
+}
+
+.push-bottom_half {
+  padding-bottom: 1rem;
+}
+
+.push-left {
+  padding-left: 2rem;
+}
+
+.push-left_tall {
+  padding-left: 3.5rem;
+}
+
+.push-left_half {
+  padding-left: 1rem;
+}
+
+.push-right {
+  padding-right: 2rem;
+}
+
+.push-right_tall {
+  padding-right: 3.5rem;
+}
+
+.push-right_half {
+  padding-right: 1rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -490,14 +614,6 @@ footer address a:hover {
 
 .lineheight-large {
   line-height: 1.5;
-}
-
-.pull-left {
-  float: left;
-}
-
-.push-right {
-  float: right;
 }
 
 .margin-auto {

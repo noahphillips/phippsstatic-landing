@@ -13,10 +13,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
   };
 
   var _loop = function _loop(i) {
-    var nav = navs[i];
-    var section = sections[i];
-    nav.addEventListener('click', function () {
-      (0, _ScrollIt.scrollIt)(section, 300, 'easeInQuad', done);
+    navs[i].addEventListener('click', function () {
+      (0, _ScrollIt.scrollIt)(sections[i], 300, 'easeInQuad', done);
     });
   };
 

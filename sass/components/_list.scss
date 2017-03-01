@@ -1,0 +1,11 @@
+.list {
+  font-family: $roboto-simibold;
+  padding-top: 1rem;
+  @include breakpoint(phablet) { padding-left: 1.6rem}
+  li {
+    padding-top: .6rem;
+    padding-left: .3rem;
+  }
+
+  &.disc { list-style-type: disc; }
+}

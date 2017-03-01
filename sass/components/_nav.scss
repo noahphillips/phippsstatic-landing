@@ -1,4 +1,4 @@
-#nav {
+.nav {
   position: fixed;
   width: 100%;
   max-width: 16rem;
@@ -8,22 +8,35 @@
   height: 100vh;
   z-index: 5;
   padding-left: 2rem;
-  background-color: rgba(black, .8);
+  background-color: darken(white, 5%);
   transform: translateX(-32rem);
   transition: transform .3s;
 
-  &.is-shown { transform: translateX(0);}
+  @include breakpoint(phablet) {
+    background-color: white;
+    box-shadow: -1px 8px 6px -6px rgba(black, .3);
+    height: auto;
+    padding-left: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transform: translateX(0);
+    max-width: initial;
+    top: 0;
+    bottom: auto;
+    left: auto;
+    right: auto;
+  }
 
   ul {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
+    @include breakpoint(phablet) {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
   }
-  li {
-    padding-bottom: 2rem;
-  }
+
+  &.is-shown { transform: translateX(0);}
+
   a {
     color: $purple-hover;
     text-decoration: none;

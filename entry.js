@@ -7,10 +7,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const sections = document.querySelectorAll('.js-section');
   const done = () => { null };
   for (let i = 0; i < navs.length; i++) {
-    const nav = navs[i]
-    const section = sections[i]
-    nav.addEventListener('click', () => {
-      scrollIt(section, 300, 'easeInQuad', done);
+    navs[i].addEventListener('click', () => {
+      scrollIt(sections[i], 300, 'easeInQuad', done);
     })
   }
   const nav = document.querySelector('.nav')
