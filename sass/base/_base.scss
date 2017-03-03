@@ -3,6 +3,8 @@ html {
     width: 100%;
     font-size: 100%;
     box-sizing: border-box;
+
+    @include breakpoint(phablet) { font-size: 90%;}
 }
 *, *:before, *:after {
     box-sizing: inherit;

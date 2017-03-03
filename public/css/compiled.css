@@ -166,6 +166,12 @@ html {
   box-sizing: border-box;
 }
 
+@media (min-width: 30em) {
+  html {
+    font-size: 90%;
+  }
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }

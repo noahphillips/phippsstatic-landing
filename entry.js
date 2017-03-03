@@ -1,34 +1,39 @@
 import {scrollIt} from './public/scripts/modules/ScrollIt.js';
 
 document.addEventListener('DOMContentLoaded', (event) => {
+  let elems = {
+    bodyWidth:  document.body.clientWidth,
+    navHeight:  document.querySelector('.nav').offsetHeight + 'px',
+    siteBody:   document.querySelector('.site-content'),
+    navLinks:   document.querySelectorAll('.nav-link'),
+    sections:   document.querySelectorAll('.js-section')
+  }
 
   // animated section scrolling on click
-  const navs = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('.js-section');
   const done = () => { null };
-  for (let i = 0; i < navs.length; i++) {
-    navs[i].addEventListener('click', () => {
-      scrollIt(sections[i], 300, 'easeInQuad', done);
+  for (let i = 0; i < elems.navLinks.length; i++) {
+    elems.navLinks[i].addEventListener('click', () => {
+      scrollIt(elems.sections[i], 300, 'easeInQuad', done);
     })
   }
-  const nav = document.querySelector('.nav')
-  const navHeight = nav.offsetHeight
-  const siteBody = document.querySelector('.site-content');
 
-  siteBody.setAttribute('style', 'padding-top:' + navHeight + 'px')
+  // nav events
+  if(elems.bodyWidth >= 768) {
+    elems.siteBody.style.paddingTop = elems.navHeight
+  }
+  
+  windowResize(elems.navHeight, elems.siteBody)
+
 });
 
-// sticky nav
-// outside of window.onload
-// const nav = document.querySelector('.nav')
-// const navHeight = nav.offsetHeight
-// const navStick = document.querySelector('.nav-stick');
-
-// window.addEventListener('scroll', () => {
-//   if(window.scrollY > 0) {
-//     navStick.classList.add('js_is-sticky')
-//   }
-//   else {
-//     navStick.classList.remove('js_is-sticky')
-//   }
-// })
+let windowResize = (height, elem) => {
+  window.addEventListener('resize', () => {
+    let width = document.body.clientWidth
+    if(width < 768) {
+      elem.style.paddingTop = 0
+    }
+    else {
+      elem.style.paddingTop = height
+    }
+  })
+}
