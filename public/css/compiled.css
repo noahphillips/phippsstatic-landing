@@ -495,6 +495,7 @@ footer address a {
   cursor: pointer;
   -webkit-transition: color .3s;
   transition: color .3s;
+  display: block;
 }
 
 footer address a:hover {

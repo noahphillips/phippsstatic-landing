@@ -14,7 +14,7 @@ footer {
       flex-wrap: wrap;
       justify-content: center;
     }
-    
+
     li { padding: 0 .5rem;}
 
     a {
@@ -22,6 +22,7 @@ footer {
       text-decoration: none;
       cursor: pointer;
       transition: color .3s;
+      display: block;
       &:hover {
         color: rgba(white, .8);
         text-decoration: underline;
