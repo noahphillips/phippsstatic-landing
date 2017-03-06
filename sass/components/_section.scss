@@ -9,23 +9,21 @@
     padding-bottom: 2rem;
     &_tall { padding-bottom: 3.5rem;}
   }
+  a {
+    display: inline-block;
+    color: $amber;
+    text-decoration: none;
+    padding-bottom: 1px;
+    margin-bottom: .3rem;
+    cursor: pointer;
 
+    transition: color .3s;
+    &:hover { color: $purple-hover;}
+  }
 }
 .section-background {
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-
-a {
-  display: inline-block;
-  color: $amber;
-  text-decoration: none;
-  padding-bottom: 1px;
-  margin-bottom: .3rem;
-  cursor: pointer;
-
-  transition: color .3s;
-  &:hover { color: $purple-hover;}
 }

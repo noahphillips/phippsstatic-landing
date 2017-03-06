@@ -6,9 +6,11 @@ var _ScrollIt = require('./public/scripts/modules/ScrollIt.js');
 document.addEventListener('DOMContentLoaded', function (event) {
   var elems = {
     bodyWidth: document.body.clientWidth,
+    nav: document.querySelector('.nav'),
+    navToggle: document.querySelector('.nav-toggle'),
+    navLinks: document.querySelectorAll('.nav-link'),
     navHeight: document.querySelector('.nav').offsetHeight + 'px',
     siteBody: document.querySelector('.site-content'),
-    navLinks: document.querySelectorAll('.nav-link'),
     sections: document.querySelectorAll('.js-section')
   };
 
@@ -30,6 +32,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
   // nav events
   if (elems.bodyWidth >= 768) {
     elems.siteBody.style.paddingTop = elems.navHeight;
+  }
+
+  if (elems.nav) {
+    elems.navToggle.addEventListener('click', function () {
+      elems.navToggle.classList.toggle('is-shown');
+      elems.nav.classList.toggle('is-shown');
+    });
   }
 
   windowResize(elems.navHeight, elems.siteBody);

@@ -7,7 +7,7 @@
   left: 0;
   height: 100vh;
   z-index: 5;
-  padding-left: 2rem;
+  box-shadow: 8px 0 6px -6px rgba(black, .3);
   background-color: darken(white, 5%);
   transform: translateX(-32rem);
   transition: transform .3s;
@@ -29,6 +29,8 @@
 
   ul {
     display: flex;
+    flex-direction: column;
+
     @include breakpoint(phablet) {
       flex-direction: row;
       justify-content: flex-end;
@@ -41,12 +43,28 @@
     color: $purple-hover;
     text-decoration: none;
     cursor: pointer;
+    display: block;
 
     transition: color .3s;
-    &:hover { color: lighten($purple-hover, 25%);}
+    &:hover { color: white;}
   }
 }
-
+.nav-link {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  cursor: pointer;
+  border-top: 1px solid $site-gray;
+  text-align: center;
+  font-size: 1.2rem;
+  @include breakpoint(phablet) {
+    text-align: left;
+    font-size: 1rem;
+    border-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 2rem;
+  }
+}
 .nav-toggle {
   position: fixed;
   top: 1.3rem;
