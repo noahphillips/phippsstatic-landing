@@ -2,8 +2,10 @@ import {scrollIt} from './public/scripts/modules/ScrollIt.js';
 
 document.addEventListener('DOMContentLoaded', (event) => {
   let elems = {
+    body:  document.querySelector('.site-body'),
     bodyWidth:  document.body.clientWidth,
     nav:   document.querySelector('.nav'),
+    navList:   document.querySelector('.nav ul'),
     navToggle:   document.querySelector('.nav-toggle'),
     navLinks:   document.querySelectorAll('.nav-link'),
     navHeight:  document.querySelector('.nav').offsetHeight + 'px',
@@ -23,16 +25,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
   if(elems.bodyWidth >= 768) {
     elems.siteBody.style.paddingTop = elems.navHeight
   }
-
-  if(elems.nav) {
-    elems.navToggle.addEventListener('click', () => {
-      elems.navToggle.classList.toggle('is-shown')
-      elems.nav.classList.toggle('is-shown')
-    })
+  if(elems.bodyWidth <= 768) {
+    if(elems.nav) {
+      elems.navToggle.addEventListener('click', () => {
+        elems.body.classList.toggle('freeze')
+        elems.navToggle.classList.toggle('is-shown')
+        elems.nav.classList.toggle('is-shown')
+      })
+      elems.navList.addEventListener('click', () => {
+        elems.nav.classList.remove('is-shown')
+        elems.navToggle.classList.remove('is-shown')
+        elems.body.classList.remove('freeze')
+      })
+    }
   }
 
-  windowResize(elems.navHeight, elems.siteBody)
 
+  windowResize(elems.navHeight, elems.siteBody)
 
 });
 

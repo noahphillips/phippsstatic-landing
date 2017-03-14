@@ -201,6 +201,7 @@ body {
   top: 0;
   bottom: 0;
   left: 0;
+  padding-top: 3.8rem;
   height: 100vh;
   z-index: 5;
   box-shadow: 8px 0 6px -6px rgba(0, 0, 0, 0.3);
@@ -289,22 +290,33 @@ body {
 
 .nav-toggle {
   position: fixed;
-  top: 1.3rem;
-  left: 2rem;
-  width: 3rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 0 2.2rem 1rem;
+  background-color: #f2f2f2;
+  width: 100%;
   z-index: 10;
-  height: 1.5rem;
   cursor: pointer;
+  box-shadow: -1px 8px 6px -6px rgba(0, 0, 0, 0.3);
+  -webkit-transition: box-shadow .3s;
+  transition: box-shadow .3s;
 }
 
-.nav-toggle .toggle-container {
+@media (min-width: 30em) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
+.nav-toggle .toggle {
   position: relative;
-  width: 100%;
+  width: 3rem;
   margin: 0;
   padding: 0;
 }
 
-.nav-toggle .toggle-container span {
+.nav-toggle .toggle span {
   display: block;
   width: 100%;
   height: .2rem;
@@ -316,7 +328,7 @@ body {
   border-radius: 2px;
 }
 
-.nav-toggle .toggle-container:after, .nav-toggle .toggle-container:before {
+.nav-toggle .toggle:after, .nav-toggle .toggle:before {
   content: '';
   display: block;
   width: 100%;
@@ -332,21 +344,25 @@ body {
   border-radius: 2px;
 }
 
-.nav-toggle .toggle-container:after {
-  bottom: -1.2rem;
+.nav-toggle .toggle:after {
+  bottom: -1.1rem;
 }
 
-.nav-toggle.is-shown .toggle-container span {
+.nav-toggle.is-shown {
+  box-shadow: -1px 8px 6px -6px transparent;
+}
+
+.nav-toggle.is-shown .toggle span {
   -webkit-transform: rotate(45deg) translate(0.4rem, 0.3rem);
   transform: rotate(45deg) translate(0.4rem, 0.3rem);
 }
 
-.nav-toggle.is-shown .toggle-container:before {
+.nav-toggle.is-shown .toggle:before {
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
-.nav-toggle.is-shown .toggle-container:after {
+.nav-toggle.is-shown .toggle:after {
   opacity: 0;
 }
 
