@@ -2,3 +2,4 @@ node_modules
 comps
 static-landing
 npm-debug.log
+.DS_Store
