@@ -4,6 +4,13 @@
 var _ScrollIt = require('./public/scripts/modules/ScrollIt.js');
 
 document.addEventListener('DOMContentLoaded', function (event) {
+  var submit = document.querySelector('.submit');
+  submit.addEventListener('click', function (evt) {
+    emailjs.sendForm('default_service', 'contact_form', 'contact-form');
+    evt.preventDefault();
+    console.log('sent');
+    // return false
+  });
   var elems = {
     body: document.querySelector('.site-body'),
     bodyWidth: document.body.clientWidth,

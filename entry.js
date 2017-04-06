@@ -1,6 +1,13 @@
 import {scrollIt} from './public/scripts/modules/ScrollIt.js';
 
 document.addEventListener('DOMContentLoaded', (event) => {
+  const submit = document.querySelector('.submit');
+  submit.addEventListener('click', (evt) => {
+    emailjs.sendForm('default_service','contact_form','contact-form')
+    evt.preventDefault();
+    console.log('sent')
+    // return false
+  })
   let elems = {
     body:  document.querySelector('.site-body'),
     bodyWidth:  document.body.clientWidth,

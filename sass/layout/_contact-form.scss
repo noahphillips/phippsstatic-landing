@@ -1,0 +1,39 @@
+.form {
+  .input {
+    padding: 1rem;
+    font-family: $base-font;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    &:focus {
+      outline: 0;
+      background: white;
+    }
+  }
+  textarea[name="message"] {
+    margin-bottom: 2rem;
+    border: 1px solid #ccc;
+    &:focus {
+      outline: 0;
+      background: white;
+    }
+  }
+  [type="button"] {
+    font-family: $bold;
+    font-size: 1rem;
+    border: 0;
+    background-color: $site-dark-gray;
+    color: white;
+    padding: 1.6rem;
+    font-size: 1.1rem;
+    letter-spacing: .1rem;
+    cursor: pointer;
+    transition: background-color .3s, color .3s;
+    @include breakpoint(phablet) {
+      padding: 1rem;
+    }
+    &:hover {
+      background-color: lighten($site-dark-gray, 20%);
+      color: black;
+    }
+  }
+}

@@ -539,6 +539,53 @@ footer address a:hover {
   text-decoration: underline;
 }
 
+.form .input {
+  padding: 1rem;
+  font-family: "latoregular";
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+
+.form .input:focus {
+  outline: 0;
+  background: white;
+}
+
+.form textarea[name="message"] {
+  margin-bottom: 2rem;
+  border: 1px solid #ccc;
+}
+
+.form textarea[name="message"]:focus {
+  outline: 0;
+  background: white;
+}
+
+.form [type="button"] {
+  font-family: "latosemibold";
+  font-size: 1rem;
+  border: 0;
+  background-color: #646b6b;
+  color: white;
+  padding: 1.6rem;
+  font-size: 1.1rem;
+  letter-spacing: .1rem;
+  cursor: pointer;
+  -webkit-transition: background-color .3s, color .3s;
+  transition: background-color .3s, color .3s;
+}
+
+@media (min-width: 30em) {
+  .form [type="button"] {
+    padding: 1rem;
+  }
+}
+
+.form [type="button"]:hover {
+  background-color: #979e9e;
+  color: black;
+}
+
 .site-body {
   min-height: 100vh;
   display: -webkit-box;
