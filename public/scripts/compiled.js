@@ -5,12 +5,17 @@ var _ScrollIt = require('./public/scripts/modules/ScrollIt.js');
 
 document.addEventListener('DOMContentLoaded', function (event) {
   var submit = document.querySelector('.submit');
+  var form = document.querySelector('#contact-form');
   submit.addEventListener('click', function (evt) {
     emailjs.sendForm('default_service', 'contact_form', 'contact-form');
     evt.preventDefault();
-    console.log('sent');
+    form.reset();
+    console.log(form);
     // return false
   });
+  // submit.addEventListener('submit', () => {
+  //   form.reset();
+  // })
   var elems = {
     body: document.querySelector('.site-body'),
     bodyWidth: document.body.clientWidth,
